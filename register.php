@@ -162,6 +162,7 @@
 			{
 				//echo '<script type="text/javascript"> alert("Sign Up button Clicked") </script>';
 				$username= $_POST['username'];
+				$fullname= $_POST['fullname'];
 				$email = $_POST['email'];
 				$password = $_POST['password'];
 				$cpassword = $_POST['cpassword'];
@@ -182,7 +183,17 @@
 					}
 					else
 					{
-						$query= "insert into adminreg values('','$username','$email','$password','$branch','$phone','$birth','$gender')";
+						$query= "insert into adminreg values(
+								'1',
+								'$username',
+								'$fullname',
+								'$email',
+								'$password',
+								'$branch',
+								'$phone',
+								'$birth',
+								'$gender'
+							)";
 						$query_run = mysqli_query($con,$query);
 
 						if($query_run)

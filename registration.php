@@ -187,7 +187,7 @@
 			<input name="rollNum" type="text" class="inputvalues" placeholder="Type your username" onclick="valROLL()" /><br>
 			<span id="rollerror"></span>
 			
-			<table>
+			<!-- <table>
 			<tr>
 			<td>Permanent Address :</td>
 			<td>Corresponding Address :</td>	
@@ -200,8 +200,24 @@
 			<textarea rows='4' cols='25' name="caddress">Type your address</textarea>
 			</td>
 			</tr>
-			</table></br>
-			
+			</table></br> -->
+			<br>
+			<label>Permanent Address : </label><br>
+			<input type="textarea" style="height: 75px; width: 407px;" name="paddress"><br>
+			<br>
+			<label>Correspondance Address : </label><br>
+			<input type="radio" name="cadd" value="yes"  onclick="updateAdd()" >Same as Permanent Address?<br>
+			<input type="textarea" style="height: 75px; width: 408px;" name="caddress"><br>
+
+			<script>
+				function updateAdd(){
+					var i=document.getElementsByTagName("input");
+					if(i[10].checked){
+						i[11].value=i[9].value;
+					
+					}
+				}
+			</script>
 
 	        <label>Gender:</label><br>
         	<input type="radio" name="gender" value="male" checked >Male
@@ -338,7 +354,5 @@
 			}
 		?>
 	</div>
-	<script src="myscript1.js"></script>
-</body>
 </html>
 

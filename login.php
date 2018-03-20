@@ -72,7 +72,7 @@
 					{
 						//valid
 						$_SESSION['username']= $username;
-						header('location:profile.php');
+						header('location:adminprofile.php');
 					}
 					else
 					{
