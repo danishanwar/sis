@@ -194,14 +194,10 @@
 			</tr>
 			<tr>
 			<td>	
-			<textarea rows='4' cols='25'>
-			Type your address
-			</textarea>
+			<textarea rows='4' cols='25' name="paddress">Type your address</textarea>
 			</td>
 			<td>
-			<textarea rows='4' cols='25'>
-			Type your address
-			</textarea>
+			<textarea rows='4' cols='25' name="caddress">Type your address</textarea>
 			</td>
 			</tr>
 			</table></br>
@@ -250,13 +246,17 @@
 			if(isset($_POST['submit_btn']))
 			{
 				$username= $_POST['username'];
+				$fullname= $_POST['fullname'];
 				$email = $_POST['email'];
 				$password = $_POST['password'];
 				$cpassword = $_POST['cpassword'];
+				$reg = $_POST['reg'];
 				$branch = $_POST['branch'];
 				$phone = $_POST['phone'];
 				$birth = $_POST['birth'];
-				$reg = $_POST['reg'];
+				$rollNum = $_POST['rollNum'];
+				$paddress = $_POST['paddress'];
+				$caddress = $_POST['caddress'];
 				$gender = $_POST['gender'];
 				$stda = $_POST['stda'];
 				$boarda = $_POST['boarda'];
@@ -274,7 +274,6 @@
 				$yearc = $_POST['yearc'];
 				$cgc = $_POST['cgc'];
 
-
 				if($password==$cpassword)
 				{
 					$query= "select * from userreg WHERE username='$username'";
@@ -287,10 +286,37 @@
 					}
 					else
 					{
-						$query= "insert into userreg values('','$username','$email','$password','$branch','$phone','$birth','$reg','$gender','$stda','$boarda',
-									'$clga','$yeara','$cga','$stdb','$boardb','$clgb','$yearb','$cgb','$stdc','$boardc','$clgc','$yearc','$cgc')";
+						$query= "insert into userreg values(
+								'1',
+								'$username',
+								'$fullname',
+								'$email',
+								'$password',
+								'$reg',
+								'$branch',
+								'$phone',
+								'$birth',
+								'$rollNum',
+								'$paddress',
+								'caddress',
+								'$gender',
+								'$stda',
+								'$boarda',
+								'$clga',
+								'$yeara',
+								'$cga',
+								'$stdb',
+								'$boardb',
+								'$clgb',
+								'$yearb',
+								'$cgb',
+								'$stdc',
+								'$boardc',
+								'$clgc',
+								'$yearc',
+								'$cgc'
+					)";
 						$query_run = mysqli_query($con,$query);
-
 						if($query_run)
 						{
 							echo '<script type="text/javascript"> alert("User Registered.. Go to Login page for login") </script>';
@@ -298,7 +324,9 @@
 						}
 						else
 						{
-							echo '<script type="text/javascript"> alert("Error!") </script>';
+							echo `<script type="text/javascript"> 
+								alert("Error description: " . mysqli_error($con);)
+							 </script>`;
 
 						}
 					}

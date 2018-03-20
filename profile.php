@@ -1,4 +1,7 @@
 <?php
+	require 'dbconfig/config.php';
+?>
+<?php
 	session_start();
 ?>
 <!DOCTYPE html>
@@ -27,10 +30,33 @@
 						<?php echo $_SESSION['username'] ?>
 					</h3>					
 					<img src="image/profile.png" class="profile"/>
+					
 				</center>
 				<form class="myform" action="profile.php" method="post">
 					
 					<input name='logout' type="submit" id="logout_btn" value="Logout"/><br><br>
+						<?php
+							$usern = $_SESSION['username'];
+							$query= "select * from userreg WHERE username='$usern'";
+							$query_run = mysqli_query($con,$query);
+							// $row = mysqli_fetch_array($query_run);
+							// var_dump($row);exit();
+							while($row = mysqli_fetch_array($query_run)) {
+								 $fullname = $row['fullname'];
+								 $email = $row['email'];
+								 $rollNum = $row['rollNum'];
+								 $birth = $row['birth'];
+								 $paddress = $row['paddress'];
+								 $clgc = $row['clgc'];
+								  echo "<h3 style='padding-left:40px;text-align: center; text-decoration: underline;'><strong style='color:rgb(100,200, 120);'>Full Name </strong>: $fullname<h3>
+								  		<h3 style='padding-left:40px;text-align: center; text-decoration: underline;'><strong style='color:rgb(100,200, 120);'>Email Id </strong>: $email<h3>
+								  		<h3 style='padding-left:40px;text-align: center; text-decoration: underline;'><strong style='color:rgb(100,200, 120);'>Roll No </strong>: $rollNum<h3>
+								  		<h3 style='padding-left:40px;text-align: center; text-decoration: underline;'><strong style='color:rgb(100,200, 120);'>Date Of Birth </strong>: $birth<h3>
+								  		<h3 style='padding-left:40px;text-align: center; text-decoration: underline;'><strong style='color:rgb(100,200, 120);'>Address </strong>: $paddress<h3>
+								  		<h3 style='padding-left:40px;text-align: center; text-decoration: underline;'><strong style='color:rgb(100,200, 120);'>College </strong>: $clgc<h3>";
+    						}
+						?>
+
 				</form>
 
 				<?php
@@ -41,6 +67,5 @@
 					}
 				?>
 		</div>
-
 	</body>
 </html>

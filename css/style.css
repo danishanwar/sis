@@ -12,6 +12,9 @@ nav{
 	text-align: center;
 	width: 100%
 }
+h4{
+	color: red;
+}
 ul{
 	width: 80%;
 	margin: 0 auto;
