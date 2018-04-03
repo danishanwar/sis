@@ -3,8 +3,9 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>"NavBar"</title>
-		<link rel="stylesheet" href="css/style.css" text="css/">
+		<title>S.I.S</title>
+		<link rel="stylesheet" href="css/homestyle.css" text="css/">
+	
 	</head>
 	<body>
 	<header>

@@ -26,33 +26,130 @@
 		<div class="main-wrapper">
 				<center>
 					<h2>Profile Page</h2>
-					<h3>Welcome
-						<?php echo $_SESSION['username'] ?>
-					</h3>					
-					<img src="image/profile.png" class="profile"/>
-					
+					<h3>Welcome <?php echo $_SESSION['username'] ?></h3>
 				</center>
-				<form class="myform" action="profile.php" method="post">
-					
-					<input name='logout' type="submit" id="logout_btn" value="Logout"/><br><br>
 						<?php
-							$usern = $_SESSION['username'];
-							$query= "select * from adminreg WHERE username='$usern'";
+						if(isset($_POST) && array_key_exists("Reject",$_POST))
+						{
+							$name=$_POST['username'];
+							$query="update userreg set accepted=0 WHERE username='$name'";
 							$query_run = mysqli_query($con,$query);
-							// $row = mysqli_fetch_array($query_run);
-							// var_dump($row);exit();
-							while($row = mysqli_fetch_array($query_run)) {
-								 $fullname = $row['fullname'];
-								 $email = $row['email'];
-								 $birth = $row['birth'];
-								  echo "<h3 style='padding-left:40px;text-align: center; text-decoration: underline;'><strong style='color:rgb(100,200, 120);'>Full Name </strong>: $fullname<h3>
-								  		<h3 style='padding-left:40px;text-align: center; text-decoration: underline;'><strong style='color:rgb(100,200, 120);'>Email Id </strong>: $email<h3>
-								  		<h3 style='padding-left:40px;text-align: center; text-decoration: underline;'><strong style='color:rgb(100,200, 120);'>Date Of Birth </strong>: $birth<h3>";
-    						}
+						}
+						$query= "select username ,fullname ,reg ,branch from userreg where accepted=1";
+						$query_run = mysqli_query($con,$query);
+						$count = mysqli_num_rows($query_run);
+						if($count>0) {
+						echo "<h2>Registered Users</h2>";
+						echo "<style>table {
+										    font-family: arial, sans-serif;
+										    border-collapse: collapse;
+										    width: 100%;
+									    }
+
+										td, th {
+										    border: 1px solid #dddddd;
+										    text-align: left;
+										    padding: 8px;
+										}
+
+										tr:nth-child(even) {
+										    background-color: blue;
+										}
+										</style>
+										<body>
+										<table>
+										  <tr>
+										    <th>username</th>
+										    <th>Full Name</th>
+										    <th>Branch</th>
+										    <th>Registration Number</th>
+										    <th>Decision</th>
+										  </tr>";
+						}
+						while($row = mysqli_fetch_array($query_run)) {
+							$username = $row['username'];
+							$fullname = $row['fullname'];
+							$reg = $row['reg'];
+							$branch = $row['branch'];
+							echo "<tr>
+							  		<td>$username</td>
+							  		<td>$fullname</td>
+							  		<td>$branch</td>
+							  		<td>$reg</td>
+							  		<td>	
+								  		<form action='adminprofile.php' method='POST'>
+								  		<input type='hidden' name='username' value='$username'>
+										<input name='Reject' type='submit' class='btn-sm btn-rej' value='Reject'>
+										</form>
+								  	</td>
+							  	  </tr>";
+							  			
+    					}
+    						echo "</table>";
 						?>
+					
+						<?php
+						if(isset($_POST) && array_key_exists("Accept",$_POST)){
+							$name=$_POST['username'];
+							$query="update userreg set accepted=1 WHERE username='$name'";
+							$query_run = mysqli_query($con,$query);
+						}
+						$query= "select username ,fullname ,reg ,branch from userreg where accepted=0";
+						$query_run = mysqli_query($con,$query);
+						$count = mysqli_num_rows($query_run);
+						if($count>0) {
+						echo "<h2>Registration Pending Users</h2>";
+						echo "<style>table {
+										    font-family: arial, sans-serif;
+										    border-collapse: collapse;
+										    width: 100%;
+										}
 
-				</form>
+										td, th {
+										    border: 1px solid #dddddd;
+										    text-align: left;
+										    padding: 8px;
+										}
 
+										tr:nth-child(even) {
+										    background-color: blue;
+										}
+										</style>
+										<body>
+										<table>
+										  <tr>
+										    <th>username</th>
+										    <th>Full Name</th>
+										    <th>Branch</th>
+										    <th>Registration Number</th>
+										    <th>Decision</th>
+										  </tr>";
+										}
+						while($row = mysqli_fetch_array($query_run)) {
+							$username = $row['username'];
+							$fullname = $row['fullname'];
+							$reg = $row['reg'];
+							$branch = $row['branch'];
+							echo "<tr>
+								  	<td>$username</td>
+								  	<td>$fullname</td>
+								  	<td>$branch</td>
+								  	<td>$reg</td>
+								  	<td>	
+									  	<form action='adminprofile.php' method='POST'>
+										<input type='hidden' name='username' value='$username'>
+										<input name='Accept' type='submit' class='btn-sm btn-acc' value='Accept'>
+									    </form>
+								    </td>
+								  </tr>";
+								  			
+    					}
+    						echo "</table>";
+						?>
+						<input name='logout' type="submit" id="logout_btn" value="Logout"/><br><br>
+
+				
+				
 				<?php
 					if(isset($_POST['logout']))
 					{

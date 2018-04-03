@@ -27,7 +27,7 @@
 					<h2>Login Form</h2>
 					<img src="image/profile.png" class="profile"/>
 				</center>
-			
+			<span id="alertAll"></span>
 				<form class="myform" action="login.php" method="post" onsubmit="return validation()">
 					<label>Username:</label><br>
 					<input name="username" type="text" class="inputvalues" placeholder="Type your username" required /><br><br>
@@ -55,8 +55,12 @@
 					}
 					else
 					{
-						//invalid
-						echo '<script type="text/javascript"> alert("Invalid credentials") </script>';
+						?>
+						<script>
+						document.getElementById('alertAll').innerHTML = 'You have entered invalid details! Please log in again with valid details';
+						</script>
+					<?php
+						
 
 					}
 				}
@@ -76,8 +80,11 @@
 					}
 					else
 					{
-						//invalid
-						echo '<script type="text/javascript"> alert("Invalid credentials") </script>';
+					?>
+						<script>
+						document.getElementById('alertAll').innerHTML = 'You have entered invalid details!<br>Please log in again with valid details';	
+						</script>
+					<?php
 
 					}
 				}

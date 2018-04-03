@@ -28,7 +28,7 @@
 			<h2>Registration Form</h2>
 			<img src="image/profile.png" class="profile"/>  
 		</center>
-	
+		<span id="alertAll"></span>
 		<form name="frm_emp" class="myform" action="register.php" method="post" action="xx.jsp">
 			<label>Username:</label><br>
 			<input name="username" type="text" class="inputvalues" placeholder="Type your username"  /><br>
@@ -179,7 +179,11 @@
 					if(mysqli_num_rows($query_run)>0)
 					{
 						// there is already a user with same username
-						echo '<script type="text/javascript"> alert("User already exists.. try another username") </script>';
+						?>
+						<script>
+						document.getElementById('alertAll').innerHTML = 'User already exists.. try another username';	
+						</script>
+					<?php
 					}
 					else
 					{
@@ -198,19 +202,31 @@
 
 						if($query_run)
 						{
-							echo '<script type="text/javascript"> alert("User Registered.. Go to Login page for login") </script>';
-
+							?>
+						<script>
+						document.getElementById('alertAll').innerHTML = 'User Registered Go to log in Page';	
+						</script>
+					<?php
 						}
 						else
 						{
-							echo '<script type="text/javascript"> alert("Error!") </script>';
+							?>
+						<script>
+						document.getElementById('alertAll').innerHTML = 'Error';	
+						</script>
+					<?php
 
 						}
 					}
 				}
 				else
 				{
-					echo '<script type="text/javascript"> alert("Password and Confirm password does not match!") </script>';
+					
+					?>
+						<script>
+						document.getElementById('alertAll').innerHTML = 'Password and Confirm password does not match!';	
+						</script>
+					<?php
 				}
 			}
 		?>

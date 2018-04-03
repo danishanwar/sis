@@ -20,12 +20,13 @@
 			</ul>
 		</nav>
 	<header>
+
 	<div class="main-wrapper">
 		<center>
 			<h2>Registration Form</h2>
 			<img src="image/profile.png" class="profile"/>  
 		</center>
-	
+		<span id="alertAll"></span>
 		<form class="myform" action="registration.php" method="post" onsubmit="return validation()">
 			<label>Username:</label><br>
 			<input name="username" type="text" class="inputvalues" placeholder="Type your username"  /><br>
@@ -185,29 +186,14 @@
 				}
 			</script>
 			<input name="rollNum" type="text" class="inputvalues" placeholder="Type your username" onclick="valROLL()" /><br>
-			<span id="rollerror"></span>
-			
-			<!-- <table>
-			<tr>
-			<td>Permanent Address :</td>
-			<td>Corresponding Address :</td>	
-			</tr>
-			<tr>
-			<td>	
-			<textarea rows='4' cols='25' name="paddress">Type your address</textarea>
-			</td>
-			<td>
-			<textarea rows='4' cols='25' name="caddress">Type your address</textarea>
-			</td>
-			</tr>
-			</table></br> -->
 			<br>
 			<label>Permanent Address : </label><br>
-			<input type="textarea" style="height: 75px; width: 407px;" name="paddress"><br>
+
+			<input type="textarea" style="height: 50px; width: 407px;" name="paddress"><br>
 			<br>
 			<label>Correspondance Address : </label><br>
-			<input type="radio" name="cadd" value="yes"  onclick="updateAdd()" >Same as Permanent Address?<br>
-			<input type="textarea" style="height: 75px; width: 408px;" name="caddress"><br>
+			<input type="checkbox" name="cadd" value="yes" onclick="updateAdd()" >Same as Permanent Address?<br>
+			<input type="textarea" style="height: 50px; width: 408px;" name="caddress"><br>
 
 			<script>
 				function updateAdd(){
@@ -215,6 +201,9 @@
 					if(i[10].checked){
 						i[11].value=i[9].value;
 					
+					}
+					else {
+						i[11].value="";
 					}
 				}
 			</script>
@@ -235,30 +224,114 @@
 			<td><input name="stda" class="small" type="text" placeholder="10th"/></td>
 			<td><input name="boarda" class="big" type="text" placeholder="Type your Board"/></td>	
 			<td><input name="clga" class="big" type="text" placeholder="Type your Institute"/></td>
-			<td><input name="yeara" class="small" type="number" placeholder="Year"/></td>
+			<!-- <td><input name="yeara" class="small" type="number" placeholder="Year"/></td> -->
+			<td><select name="yeara">
+					<option value="2001">2001</option>
+					<option value="2002">2002</option>
+					<option value="2003">2003</option>
+					<option value="2004">2004</option>
+					<option value="2005">2005</option>
+					<option value="2006">2006</option>
+					<option value="2007">2007</option>
+					<option value="2008">2008</option>
+					<option value="2009">2009</option>
+					<option value="2010">2010</option>
+					<option value="2011">2011</option>
+					<option value="2012">2012</option>
+					<option value="2013">2013</option>
+					<option value="2014">2014</option>
+					<option value="2015">2015</option>
+					<option value="2016">2016</option>
+					<option value="2017">2017</option>
+					<option value="2018">2018</option>
+					<option value="2019">2019</option>
+					<option value="2020">2020</option>
+				</select>
+			</td>
 			<td><input name="cga" class="small" type="number" placeholder="Opt"/></td>
 			</tr>
 			<tr>
 			<td><input name="stda" class="small" type="text" placeholder="12th"/></td>
 			<td><input name="boardb" class="big" type="text" placeholder="Type your Board"/></td>	
 			<td><input name="clgb" class="big" type="text" placeholder="Type your Institute"/></td>
-			<td><input name="yearb" class="small" type="number" placeholder="Year"/></td>
+			<!-- <td><input name="yearb" class="small" type="number" placeholder="Year"/></td> -->
+			<td><select name="yearb">
+					<option value="2001">2001</option>
+					<option value="2002">2002</option>
+					<option value="2003">2003</option>
+					<option value="2004">2004</option>
+					<option value="2005">2005</option>
+					<option value="2006">2006</option>
+					<option value="2007">2007</option>
+					<option value="2008">2008</option>
+					<option value="2009">2009</option>
+					<option value="2010">2010</option>
+					<option value="2011">2011</option>
+					<option value="2012">2012</option>
+					<option value="2013">2013</option>
+					<option value="2014">2014</option>
+					<option value="2015">2015</option>
+					<option value="2016">2016</option>
+					<option value="2017">2017</option>
+					<option value="2018">2018</option>
+					<option value="2019">2019</option>
+					<option value="2020">2020</option>
+				</select>
+			</td>
 			<td><input name="cgb" class="small" type="number" placeholder="Opt"/></td>
 			</tr>
 			<tr>
 			<td><input name="stdc" class="small" type="text" placeholder="BTech"/></td>
 			<td><input name="boardc" class="big" type="text" placeholder="Type your Board"/></td>	
 			<td><input name="clgc" class="big" type="text" placeholder="Type your Institute"/></td>
-			<td><input name="yearc" class="small" type="number" placeholder="Year"/></td>
-			<td><input name="cgc" class="small" type="number" placeholder="Opt"/></td>
+			<!-- <td><input name="yearc" class="small" type="number" placeholder="Year"/></td> -->
+			<td><select name="yearc">
+					<option value="2001">2001</option>
+					<option value="2002">2002</option>
+					<option value="2003">2003</option>
+					<option value="2004">2004</option>
+					<option value="2005">2005</option>
+					<option value="2006">2006</option>
+					<option value="2007">2007</option>
+					<option value="2008">2008</option>
+					<option value="2009">2009</option>
+					<option value="2010">2010</option>
+					<option value="2011">2011</option>
+					<option value="2012">2012</option>
+					<option value="2013">2013</option>
+					<option value="2014">2014</option>
+					<option value="2015">2015</option>
+					<option value="2016">2016</option>
+					<option value="2017">2017</option>
+					<option value="2018">2018</option>
+					<option value="2019">2019</option>
+					<option value="2020">2020</option>
+				</select>
+			</td>
+			<td><input name="cgc" class="small" type="number" step="0.01" placeholder="CGPA"/></td>
 			</tr>
 			</table><br>
+			<label>Hobbies:</label><br>
+			<input type="checkbox" name="hob1" value="yes"  >Listening to Music<br>
+			<input type="checkbox" name="hob2" value="yes"  >Watching Movies<br>
+			<input type="checkbox" name="hob3" value="yes"  >Reading Books<br>
+			<input type="checkbox" name="hob4" value="yes"  >Playing Sports<br>
+			<input type="radio" name="hobo" value="yes" onclick="bringTarea()" >Add Other<br>
+			<span id="responce"></span>
+			<script>
+					var countBox =1;
+					var boxName = 0;
+					function bringTarea()
+					{
+					     var boxName="textBox"; 
+					document.getElementById('responce').innerHTML+='<br/><input type="textarea" style="height:30px; width:407px;" id="textbox" name="textbox" value=""/><br/>';
+					}
+			</script>
 			<a href="login.php"><input type="button" id="back_btn" value="<<Back to Login"/></a>
 			<input name="submit_btn" type="submit" id="signin_btn" value="SignUp"/><br>
 		</form>
 
 		<?php
-
 			if(isset($_POST['submit_btn']))
 			{
 				$username= $_POST['username'];
@@ -289,16 +362,23 @@
 				$clgc = $_POST['clgc'];
 				$yearc = $_POST['yearc'];
 				$cgc = $_POST['cgc'];
-
+				$hob1 = $_POST['hob1'];
+				$hob2 = $_POST['hob2'];
+				$hob3 = $_POST['hob3'];
+				$hob4 = $_POST['hob4'];
+				$hobo = $_POST['textbox'];
 				if($password==$cpassword)
 				{
 					$query= "select * from userreg WHERE username='$username'";
 					$query_run = mysqli_query($con,$query);
-
+					
 					if(mysqli_num_rows($query_run)>0)
 					{
-						// there is already a user with same username
-						echo '<script type="text/javascript"> alert("User already exists.. try another username") </script>';
+					?>
+						<script>
+						document.getElementById('alertAll').innerHTML = 'User already exists.. try another username';	
+						</script>
+					<?php
 					}
 					else
 					{
@@ -331,25 +411,30 @@
 								'$clgc',
 								'$yearc',
 								'$cgc'
+
 					)";
 						$query_run = mysqli_query($con,$query);
 						if($query_run)
 						{
-							echo '<script type="text/javascript"> alert("User Registered.. Go to Login page for login") </script>';
-
+						?>
+							<script>
+							document.getElementById('alertAll').innerHTML = 'User Registered Go to log in Page';	
+							</script>
+						<?php
 						}
 						else
 						{
-							echo `<script type="text/javascript"> 
-								alert("Error description: " . mysqli_error($con);)
-							 </script>`;
-
+						echo "<script type='text/javascript'>alert('Error description: ' . mysqli_error($con);)</script>";
 						}
 					}
 				}
 				else
 				{
-					echo '<script type="text/javascript"> alert("Password and Confirm password does not match!") </script>';
+					?>
+						<script>
+						document.getElementById('alertAll').innerHTML = 'Password does not match';	
+						</script>
+					<?php
 				}
 			}
 		?>
