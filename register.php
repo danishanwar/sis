@@ -17,8 +17,8 @@
 			<ul>
 				<li><a href="index.php">Home</a></li>
 				<li><a href="login.php">Login</a></li>
-				<li><a href="registration.php">User_signin</a></li>
-				<li><a href="register.php">Admin_signin</a></li>
+				<li><a href="registration.php">User Sign Up</a></li>
+				<li><a href="register.php">Admin Sign Up</a></li>
 				<li><a href="contact.php">Contact</a></li>
 			</ul>
 		</nav>

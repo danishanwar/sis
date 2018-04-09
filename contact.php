@@ -19,9 +19,7 @@
 				<li><a href="contact.php">Contact</a></li>
 			</ul>
 		</nav>
-<link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-<body style="font-family: 'Nunito', sans-serif;background-color:#455a64;">
-	<div class="main-wrapper">
+		<div class="main-wrapper">
 		<h1 style="text-align: center;">Contributers</h1>
 		<div class="cardd card-2">
 			<div style="text-align: center; margin: auto; padding-top: 10px;">

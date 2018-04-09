@@ -15,9 +15,6 @@
 		<nav>
 			<ul>
 				<li><a href="index.php">Home</a></li>
-				<li><a href="login.php">Login</a></li>
-				<li><a href="registration.php">User_signin</a></li>
-				<li><a href="register.php">Admin_signin</a></li>
 				<li><a href="contact.php">Contact</a></li>
 			</ul>
 		</nav>
@@ -63,55 +60,50 @@
 							$query_run = mysqli_query($con,$query);
 							if(mysqli_fetch_array($query_run)[0]["accepted"]=="0"){
 								echo "<h2 style='color: red;'>You are not registered yet</h2><br><h3>Your details has been sent to admin for verification, Please log in after some time</h3><br>";
-							//session_destroy();
 							}
 							else {
 								$query= "select * from userreg WHERE username='$usern'";
-							$query_run = mysqli_query($con,$query);
-							while($row = mysqli_fetch_array($query_run)) {
-								 $fullname = $row['fullname'];
-								 $email = $row['email'];
-								 $rollNum = $row['rollNum'];
-								 $birth = $row['birth'];
-								 $paddress = $row['paddress'];
-								 $clgc = $row['clgc'];
-								 $cgc = $row['cgc'];
-								 $hobo = $row['hobo'];
-								  echo "<h3 style='padding-left:40px;text-align: center;'><strong style='color:rgb(100,200, 120);'>Full Name </strong>: $fullname<h3>
-								  		<h3 style='padding-left:40px;text-align: center;'><strong style='color:rgb(100,200, 120);'>Email Id </strong>: $email<h3>
-								  		<h3 style='padding-left:40px;text-align: center;'><strong style='color:rgb(100,200, 120);'>Roll No </strong>: $rollNum<h3>
-								  		<h3 style='padding-left:40px;text-align: center;'><strong style='color:rgb(100,200, 120);'>Date Of Birth </strong>: $birth<h3>
-								  		<h3 style='padding-left:40px;text-align: center;'><strong style='color:rgb(100,200, 120);'>Address </strong>: $paddress<h3>
-								  		<h3 style='padding-left:40px;text-align: center;'><strong style='color:rgb(100,200, 120);'>College </strong>: $clgc<h3>
-								  		<h3 style='padding-left:40px;text-align: center;'><strong style='color:rgb(100,200, 120);'>CGPA </strong>: $cgc<h3>";
+								$query_run = mysqli_query($con,$query);
+								while($row = mysqli_fetch_array($query_run)) {
+									 $fullname = $row['fullname'];
+									 $email = $row['email'];
+									 $rollNum = $row['rollNum'];
+									 $birth = $row['birth'];
+									 $paddress = $row['paddress'];
+									 $clgc = $row['clgc'];
+									 $cgc = $row['cgc'];
+									 $hobo = $row['hobo'];
+									  echo "<h3 style='padding-left:40px;text-align: center;'><strong style='color:rgb(100,200, 120);'>Full Name </strong>: $fullname<h3>
+									  		<h3 style='padding-left:40px;text-align: center;'><strong style='color:rgb(100,200, 120);'>Email Id </strong>: $email<h3>
+									  		<h3 style='padding-left:40px;text-align: center;'><strong style='color:rgb(100,200, 120);'>Roll No </strong>: $rollNum<h3>
+									  		<h3 style='padding-left:40px;text-align: center;'><strong style='color:rgb(100,200, 120);'>Date Of Birth </strong>: $birth<h3>
+									  		<h3 style='padding-left:40px;text-align: center;'><strong style='color:rgb(100,200, 120);'>Address </strong>: $paddress<h3>
+									  		<h3 style='padding-left:40px;text-align: center;'><strong style='color:rgb(100,200, 120);'>College </strong>: $clgc<h3>
+									  		<h3 style='padding-left:40px;text-align: center;'><strong style='color:rgb(100,200, 120);'>CGPA </strong>: $cgc<h3>";
 
-    						}
+	    						}
+	    					echo "<h3 style='padding-left:40px;text-align: center;'><strong style='color:rgb(100,200, 120);'>Hobbies : </strong><h3>";
 							$usern = $_SESSION['username'];
 							$query= "select hob1 from userreg WHERE username='$usern'";
 							$query_run1 = mysqli_query($con,$query);
+							if($query_run1 != "") echo " Listening to Music, " ;
 							$query= "select hob2 from userreg WHERE username='$usern'";
 							$query_run2 = mysqli_query($con,$query);
+							if($query_run2 == 1) echo "Watching Movies, " ;
 							$query= "select hob3 from userreg WHERE username='$usern'";
 							$query_run3 = mysqli_query($con,$query);
+							if($query_run3 != "") echo " Reading Books, " ;
 							$query= "select hob4 from userreg WHERE username='$usern'";
 							$query_run4 = mysqli_query($con,$query);
-							echo "<h3 style='padding-left:40px;text-align: center;'><strong style='color:rgb(100,200, 120);'>Hobbies : </strong><h3>";
-							if($query_run1) echo " Listening to Music, " ;
-							if($query_run2) echo " Watching Movies, ";
-							if($query_run3) echo " Reading Books, " ;
-							if($query_run4) echo " Playing Sports, ";
+							if($query_run4 == 1) echo " Playing Sports, ";
 							$usern = $_SESSION['username'];
 							$query= "select * from userreg WHERE username='$usern'";
 							$query_run = mysqli_query($con,$query);
 							while($row = mysqli_fetch_array($query_run)) {
 								 $hobo = $row['hobo'];
 								  echo " $hobo ";
-
-    						}
-
 							}
-							
-
+						}
 						?>
 						<input name='logout' type="submit" id="logout_btn" value="Logout"/><br><br>
 				</form>

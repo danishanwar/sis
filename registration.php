@@ -6,7 +6,6 @@
 <head>
 	<title>Registration Page</title>
 	<link rel="stylesheet" href="css/style.css" text="css">
-	<!-- <script src="myscript1.js"></script> -->
 </head>
 <body>
 	<header>
@@ -14,27 +13,25 @@
 			<ul>
 				<li><a href="index.php">Home</a></li>
 				<li><a href="login.php">Login</a></li>
-				<li><a href="registration.php">User_signin</a></li>
-				<li><a href="register.php">Admin_signin</a></li>
+				<li><a href="registration.php">User Sign Up</a></li>
+				<li><a href="register.php">Admin Sign Up</a></li>
 				<li><a href="contact.php">Contact</a></li>
 			</ul>
 		</nav>
 	<header>
-
+	
 	<div class="main-wrapper">
 		<center>
 			<h2>Registration Form</h2>
-			<img src="image/profile.png" class="profile"/>  
+			<img src="image/profile.png" class="profile">  
 		</center>
 		<span id="alertAll"></span>
-		<form class="myform" action="registration.php" method="post" onsubmit="return validation()">
+		<form class="myform" action="registration.php" method="post">
 			<label>Username:</label><br>
 			<input name="username" type="text" class="inputvalues" placeholder="Type your username"  /><br>
 			<span id="nameerror"></span><br>
 			<label>Fullname:</label><br>
 			<input name="fullname" onclick="myfun()" type="text" class="inputvalues" placeholder="Type your fullname" /><br><br>
-			
-
 			<script>
 				function myfun() {
 					var result=true;
@@ -59,6 +56,7 @@
 				    }
 				}
 			</script>
+
 			<span id="fnameerror"></span><br>
 			<label>Email:</label><br>
 			<input name="email" type="email" onclick="valFNAME()" class="inputvalues" placeholder="Type your email" /><br><br>
@@ -284,7 +282,6 @@
 			<td><input name="stdc" class="small" type="text" placeholder="BTech"/></td>
 			<td><input name="boardc" class="big" type="text" placeholder="Type your Board"/></td>	
 			<td><input name="clgc" class="big" type="text" placeholder="Type your Institute"/></td>
-			<!-- <td><input name="yearc" class="small" type="number" placeholder="Year"/></td> -->
 			<td><select name="yearc">
 					<option value="2001">2001</option>
 					<option value="2002">2002</option>
@@ -312,10 +309,10 @@
 			</tr>
 			</table><br>
 			<label>Hobbies:</label><br>
-			<input type="checkbox" name="hob1" value="yes"  >Listening to Music<br>
-			<input type="checkbox" name="hob2" value="yes"  >Watching Movies<br>
-			<input type="checkbox" name="hob3" value="yes"  >Reading Books<br>
-			<input type="checkbox" name="hob4" value="yes"  >Playing Sports<br>
+			<input type="checkbox" name="hob1" value="yes">Listening to Music<br>
+			<input type="checkbox" name="hob2" value="yes">Watching Movies<br>
+			<input type="checkbox" name="hob3" value="yes">Reading Books<br>
+			<input type="checkbox" name="hob4" value="yes">Playing Sports<br>
 			<input type="radio" name="hobo" value="yes" onclick="bringTarea()" >Add Other<br>
 			<span id="responce"></span>
 			<script>
@@ -323,7 +320,7 @@
 					var boxName = 0;
 					function bringTarea()
 					{
-					     var boxName="textBox"; 
+					var boxName="textBox"; 
 					document.getElementById('responce').innerHTML+='<br/><input type="textarea" style="height:30px; width:407px;" id="textbox" name="textbox" value=""/><br/>';
 					}
 			</script>
@@ -371,7 +368,6 @@
 				{
 					$query= "select * from userreg WHERE username='$username'";
 					$query_run = mysqli_query($con,$query);
-					
 					if(mysqli_num_rows($query_run)>0)
 					{
 					?>
@@ -410,8 +406,13 @@
 								'$boardc',
 								'$clgc',
 								'$yearc',
-								'$cgc'
-
+								'$cgc',
+								'$hob1',
+								'$hob2',
+								'$hob3',
+								'$hob4',
+								'$hobo',
+								'0'
 					)";
 						$query_run = mysqli_query($con,$query);
 						if($query_run)
