@@ -15,16 +15,12 @@
 		<nav>
 			<ul>
 				<li><a href="index.php">Home</a></li>
-				<!-- <li><a href="login.php">Login</a></li> -->
-				<!-- <li><a href="registration.php">User_signin</a></li>
-				<li><a href="register.php">Admin_signin</a></li> -->
 				<li><a href="contact.php">Contact</a></li>
 			</ul>
 		</nav>
 		</header>
 		<?php
 			$usern = $_SESSION['username'];
-			var_dump($usern);
 			if($usern==""){
 				header('location:login.php');
 			}

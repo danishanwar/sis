@@ -22,8 +22,7 @@
 	
 	<div class="main-wrapper">
 		<center>
-			<h2>Registration Form</h2>
-			<img src="image/profile.png" class="profile">  
+			<h2>Registration Form</h2> 
 		</center>
 		<span id="alertAll"></span>
 		<form class="myform" action="registration.php" method="post">
@@ -34,7 +33,6 @@
 			<input name="fullname" onclick="myfun()" type="text" class="inputvalues" placeholder="Type your fullname" /><br><br>
 			<script>
 				function myfun() {
-					var result=true;
 					var i=document.getElementsByTagName("input");
 					if(i[0].value.length == 0)
 					{

@@ -7,7 +7,6 @@
 	<head>
 		<title>Login Page</title>
 		<link rel="stylesheet" href="css/style.css" type="text/css">
-		<script src="myscript2.js"></script>
 	</head>
 	<body>
 		<header>
@@ -31,10 +30,9 @@
 		<div class="main-wrapper">
 				<center>
 					<h2>Login Form</h2>
-					<img src="image/profile.png" class="profile"/>
 				</center>
 			<span id="alertAll"></span>
-				<form class="myform" action="login.php" method="post" onsubmit="return validation()">
+				<form class="myform" action="login.php" method="post">
 					<label>Username:</label><br>
 					<input name="username" type="text" class="inputvalues" placeholder="Type your username" required /><br><br>
 					<label>Password:</label><br>

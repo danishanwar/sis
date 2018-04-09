@@ -22,7 +22,7 @@
 
 		<?php
 			$usern = $_SESSION['username'];
-			$query= "select accepted from userreg WHERE username='$usern'";
+			$query = "select accepted from userreg WHERE username='$usern'";
 			$query_run = mysqli_query($con,$query);
 			if(mysqli_fetch_array($query_run)[0]["accepted"]=="0"){
 				echo "<marquee attribute_name = 'attribute_value'  attributes>
