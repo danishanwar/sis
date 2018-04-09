@@ -1,7 +1,7 @@
 # STUDENT INFORMATION SYSTEM
 ----
 ## Abstract
-see my website[Wikipedia](http://iammda23.tk)
+see my website [Danish](http://iammda23.tk)
 
 > This is a basic student information sharing website. Here user can sign up and enter his/her details and once it gets verified by the admin, he/she will be able to do his/her allotted works.
 
@@ -14,7 +14,7 @@ see my website[Wikipedia](http://iammda23.tk)
 2. MySQL
 
 ----
-##Prerequisite
+## Prerequisite
 
 >Javascript enabled Browser, LAMP/XAMPP installed on machine, 
 >Locate this repositary in your var/www/html and go to localhost i.e. render index.php
