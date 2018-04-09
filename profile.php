@@ -118,9 +118,8 @@
 				<?php
 					if(isset($_POST['logout']))
 					{
-						echo "Danish";
-						//session_destroy();
-						//header('location:login.php');
+						session_destroy();
+						header('location:login.php');
 					}
 				?>
 				

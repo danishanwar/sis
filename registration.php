@@ -251,7 +251,7 @@
 			<td><input name="cga" class="small" type="number" placeholder="Opt"/></td>
 			</tr>
 			<tr>
-			<td><input name="stda" class="small" type="text" placeholder="12th"/></td>
+			<td><input name="stdb" class="small" type="text" placeholder="12th"/></td>
 			<td><input name="boardb" class="big" type="text" placeholder="Type your Board"/></td>	
 			<td><input name="clgb" class="big" type="text" placeholder="Type your Institute"/></td>
 			<!-- <td><input name="yearb" class="small" type="number" placeholder="Year"/></td> -->
